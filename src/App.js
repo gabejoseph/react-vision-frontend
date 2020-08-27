@@ -3,13 +3,9 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      <header>
-      </header>
-      <body>
-        <p>Hello World</p>
-      </body>
-    </div>
+        <body>
+          <p>Hello World</p>
+        </body>
   );
 }
 
