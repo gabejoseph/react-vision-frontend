@@ -67,3 +67,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 # react-vision-frontend
+
+.env.local - Need to create this with google maps api key in it. Name of Variable is REACT_APP_MAP
