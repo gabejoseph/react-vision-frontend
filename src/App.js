@@ -1,18 +1,12 @@
 import React from 'react';
 import './App.css';
 
-
-const dotenv = require('dotenv')
-const env = dotenv.config().parsed
-
-
-
   
 
 function App() {
   return (
       <div>
-        <p>Welcome from {console.log(env)}</p>
+        <p>Welcome from {}</p>
       </div>
   );
 }
