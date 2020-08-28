@@ -3,28 +3,30 @@ import './App.css';
 
 
 
-const vision = require('@google-cloud/vision')
+// async function quickstart() {
+//   // Imports the Google Cloud client library
+  const vision = require('@google-cloud/vision');
 
-console.log(vision)
+//   // Creates a client
+  const client = new vision.ImageAnnotatorClient({
+    oauth: '7GPg2YnMG8dQNZb2AYHGZ2Yg'
+  });
 
+  console.log(client)
 
-const client = new vision.ImageAnnotatorClient();
-
-// client
-//   .labelDetection('./resources/1200px-Florida_Box_Turtle_Digon3_re-edited.jpg')
-//   .then(results => {
-//     const labels = results[0].labelAnnotations;
-//     console.log('Labels:');
-//     labels.forEach(label => console.log(label.description))
-//   })
-//   .catch(err => console.log('ERROR', err));
+//   // Performs label detection on the image file
+//   const [result] = await client.labelDetection('./resources/wakeupcat.jpg');
+//   const labels = result.labelAnnotations;
+//   console.log('Labels:');
+//   labels.forEach(label => console.log(label.description));
+// }
   
 
 function App() {
   return (
-        <body>
-          <p>Hello World</p>
-        </body>
+      <div>
+        Hello World
+      </div>
   );
 }
 
