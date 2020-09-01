@@ -4,7 +4,10 @@ import './Banner.css'
 function Banner() {
     return (
         <div className='banner' >
-            <p>Hi from Banner</p>
+            <div className='banner_info'>
+                <h1>Get out and stretch your imagination</h1>
+                <h5>Plan a different kind of getaway to uncover the hidden gems near you.</h5>
+            </div>
         </div>
     )
 }

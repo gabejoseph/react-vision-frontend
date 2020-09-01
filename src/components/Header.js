@@ -10,7 +10,7 @@ function Header() {
         <div className="header" >
             <img 
                 className="header_icon"
-                src="https://allpointsco.com/apm/wp-content/uploads/2016/09/icon-sight.png"
+                src="https://www.creativefabrica.com/wp-content/uploads/2019/05/Silhouette-of-a-modern-city-by-AlexZel-580x387.jpg"
                 alt=""
             />
             <div className="header_center">
