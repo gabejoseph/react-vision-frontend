@@ -8,7 +8,6 @@ import Header from './components/Header'
 function App() {
   return (
       <div className="app" >
-        <p>Hey Clever Programmer, Lets build the AirBNB clone !</p>
 
       <Header />
       <Home />
