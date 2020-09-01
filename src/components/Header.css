@@ -11,7 +11,7 @@
 
 .header_icon {
     object-fit: contain;
-    height: 100px;
+    height: 60px;
     margin-left: 20px;
 }
 
@@ -27,7 +27,9 @@
 
 .header_center > input {
     border: none;
-    width: 250px;
+    /* width: 250px; */
+    padding: 5px;
+    outline-width: 0;
 }
 
 .header_right {
