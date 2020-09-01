@@ -10,8 +10,10 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "cross-var": "^1.1.0",
+    "date-fns": "^2.16.1",
     "express": "^4.17.1",
     "react": "^16.13.1",
+    "react-date-range": "^1.0.3",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },
