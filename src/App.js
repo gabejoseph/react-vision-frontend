@@ -1,17 +1,6 @@
 import React from 'react';
 import './App.css';
-
-  
-
-var url = "https://en.wikipedia.org/w/api.php"; 
-
-var params = {
-    action: "search",
-    search: "zimbabwe",
-    limit: "5",
-    namespace: "0",
-    format: "json"
-};
+import Home from './components/Home'
 
 
 
@@ -20,18 +9,21 @@ function App() {
       <div className="app" >
         <p>Hey Clever Programmer, Lets build the AirBNB clone !</p>
 
-      {/* Home */}
-        {/* Header */}
+      <Header />
+      <Home />
 
-        {/* Banner */}
-          {/* Search */}
+        {/* Home */}
+          {/* Header */}
 
-        {/* Cards */}
+          {/* Banner */}
+            {/* Search */}
 
-        {/* Footer */}
+          {/* Cards */}
 
-      {/* SearchPage */}
-        {/* ... */}
+          {/* Footer */}
+
+        {/* SearchPage */}
+          {/* ... */}
 
       </div>
   );
