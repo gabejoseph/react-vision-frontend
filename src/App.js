@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Home from './components/Home'
 import Header from './components/Header'
+import Footer from './components/Footer'
+// import Map from './components/Map'
 
 
 
@@ -11,6 +13,8 @@ function App() {
 
       <Header />
       <Home />
+      {/* <Map /> */}
+      <Footer />
 
         {/* Home */}
           {/* Header */}
@@ -20,7 +24,6 @@ function App() {
 
           {/* Cards */}
 
-          {/* Footer */}
 
         {/* SearchPage */}
           {/* ... */}
