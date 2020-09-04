@@ -1,5 +1,6 @@
 import React from 'react'
 import './SearchPage.css'
+import SearchResult from './SearchResult'
 import { Button } from '@material-ui/core'
 
 function SearchPage() {
@@ -26,6 +27,15 @@ function SearchPage() {
                     variant="outlined">More filters
                 </Button>
             </div>
+            <SearchResult 
+                img="https://cdnimages.familyhomeplans.com/plans/72226/72226-b600.jpg"
+                location="Private room in the center of London"
+                title="Stay at this spacious Edwardian House"
+                description="1 guest · 1 bedrooom · 1 bed · 1.5 shared bathrooms · Wifi · Kitchen · Free Parking · Washing Machine"
+                star={4.73}
+                price="30USD / night"
+                total=" 100USD total"
+            />
         </div>
     )
 }
