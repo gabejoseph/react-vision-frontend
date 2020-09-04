@@ -30,19 +30,20 @@ function SearchResult({
                 <div
                 className="searchResult_infoBottom">
                     <div
-                    className="serachResult_stars"/>
-                    <StarIcon
-                    className="searchResult_star" />
-                    <p>
-                        <strong>{star}
-                        </strong>
-                    </p>
-                </div>
-                <div
-                className="searchResults_price">
+                    className="searchResult_stars">
+                        <StarIcon
+                        className="searchResult_star" />
+                        <p>
+                            <strong>{star}
+                            </strong>
+                        </p>
+                    </div>
+                    <div className="searchResults_price">
                     <h2>{price}</h2>
                     <p>{total}</p>
                 </div>
+                </div>
+
             </div>
         </div>
     )
