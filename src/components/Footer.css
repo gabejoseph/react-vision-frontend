@@ -1,5 +1,4 @@
 .footer {
-    position: sticky;
     border-top: 1px solid lightgray;
     padding: 20px;
     background-color: #f7f7f7;
@@ -12,3 +11,4 @@
     font-size: 14px;
 }
 
+ 
