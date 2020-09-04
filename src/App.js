@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import SearchPage from './components/SearchPage'
 // import Map from './components/Map'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux';
 
 
 
@@ -37,4 +38,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return ({
+    cats: state.cats
+  })
+}
+
+export default connect(mapStateToProps, null)(App)
