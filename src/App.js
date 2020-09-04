@@ -39,9 +39,18 @@ function App() {
 }
 
 const mapStateToProps = state => {
-  return ({
-    cats: state.cats
-  })
-}
-
-export default connect(mapStateToProps, null)(App)
+  return {
+    items: state.items
+  };
+};
+ 
+const mapDispatchToProps = dispatch => {
+  return {
+    increaseCount: () => dispatch({ type: 'INCREASE_COUNT' })
+  };
+};
+ 
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
