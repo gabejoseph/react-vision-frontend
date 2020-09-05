@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import Home from './components/Home'
+import Home from './containers/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import SearchPage from './components/SearchPage'
+import SearchPage from './containers/SearchPage'
 // import Map from './components/Map'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux';
