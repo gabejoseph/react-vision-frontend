@@ -1,6 +1,8 @@
-// import { combineReducers } from 'redux';
-// import quotes from './quotes';
+import { combineReducers } from 'redux';
+import listings from './listings';
+import cats from './cats'
 
-// export default combineReducers({
-//   quotes
-// });
+export default combineReducers({
+  listings,
+  cats
+});

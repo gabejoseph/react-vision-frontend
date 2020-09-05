@@ -6,16 +6,11 @@ import { Provider } from 'react-redux'
 import { 
   createStore,
   applyMiddleware,
-  compose,
-  combineReducers
+  compose
 } from 'redux'
 import thunk from 'redux-thunk'
+import reducers from './reducers/index'
 
-const reducers = combineReducers(
-  {
-    // cats
-  }
-)
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
