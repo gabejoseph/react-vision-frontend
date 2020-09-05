@@ -1,4 +1,4 @@
-export default (state = [], action ) => {
+export default function listings ( state = [], action ) {
 
   let newState;
 
