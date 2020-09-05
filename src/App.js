@@ -7,6 +7,7 @@ import SearchPage from './containers/SearchPage'
 // import Map from './components/Map'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux';
+import Login from './containers/Login'
 
 
 
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route path="/" >
               <Home />
+            </Route>
+            <Route path="/login" >
+              <Login />
             </Route>
           </ Switch>
 

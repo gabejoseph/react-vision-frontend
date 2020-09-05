@@ -1,4 +1,4 @@
-const catsReducer = (state = { cats: [], loading: false }, action) => {
+const catsReducer = (state = { users: [], loading: false }, action) => {
     switch(action.type) {
         case 'LOADING_CATS':
             return {
@@ -12,6 +12,12 @@ const catsReducer = (state = { cats: [], loading: false }, action) => {
                 cats: action.cats,
                 loading: false
             }
+        case 'LOGGIN_IN':
+            return {
+                ...state,
+                
+            }
+
         default: 
         return state;
     }

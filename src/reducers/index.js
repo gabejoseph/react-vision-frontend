@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import listings from './listings';
-import cats from './cats'
+import users from './users'
 
 export default combineReducers({
   listings,
-  cats
+  users
 });
