@@ -4,10 +4,11 @@ import Home from './containers/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import SearchPage from './containers/SearchPage'
+import Login from './containers/Login'
+
 // import Map from './components/Map'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux';
-import Login from './containers/Login'
 
 
 
@@ -18,17 +19,17 @@ function App() {
 
           <Header />
 
-          <Switch>
-            <Route path="/search" >
-              <SearchPage />
-            </Route>
-            <Route path="/" >
-              <Home />
-            </Route>
-            <Route path="/login" >
-              <Login />
-            </Route>
-          </ Switch>
+            <Switch>
+              <Route path="/search" >
+                <SearchPage />
+              </Route>
+              <Route path="/login" >
+                <Login />
+              </Route>
+              <Route path="/" >
+                <Home />
+              </Route>
+            </ Switch>
 
           {/* <Map /> */}
 
