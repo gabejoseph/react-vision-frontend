@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import listings from './listings';
-import users from './users'
+import alert from './alert.reducer';
+import authentication from './authentication.reducer'
 
 export default combineReducers({
-  listings,
-  users
+  alert,
+  authentication
 });
