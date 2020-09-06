@@ -13,7 +13,10 @@ const BASE_URL = 'http://localhost:4000'
 function login(email, password) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({ email, password })
     };
 
@@ -51,7 +54,10 @@ function getById(id) {
 function register(user) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(user)
     };
 
@@ -61,7 +67,10 @@ function register(user) {
 function update(user) {
     const requestOptions = {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(user)
     };
 
@@ -89,7 +98,7 @@ function handleResponse(response) {
             const error = (data && data.message) || response.statusText;
             return Promise.reject(error);
         }
-
+        console.log(data)
         return data;
     });
 }
