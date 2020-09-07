@@ -15,7 +15,7 @@ function getListings() {
             .then(
                 listings => { 
                     dispatch(success(listings));
-                    history.push('/');
+                    // history.push('/');
                 },
             );
     };

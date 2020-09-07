@@ -12,10 +12,12 @@ class SearchPage extends React.Component {
 
     constructor(props) {
         super(props);
+
     }
 
     componentDidMount() {
         this.props.getListings()
+
     }
 
     render() {
@@ -42,69 +44,26 @@ class SearchPage extends React.Component {
                         variant="outlined">More filters
                     </Button>
                 </div>
-                <SearchResult 
-                    img="https://i.ytimg.com/vi/-rOqeFsGMcI/maxresdefault.jpg"
-                    location="Private room in the center of London"
-                    title="Stay at this spacious Edwardian House"
-                    description="1 guest · 1 bedrooom · 1 bed · 1.5 shared bathrooms · Wifi · Kitchen · Free Parking · Washing Machine"
-                    star={4.73}
-                    price="30USD / night"
-                    total=" 100USD total"
-                />
-                <SearchResult 
-                    img="https://i.ytimg.com/vi/-rOqeFsGMcI/maxresdefault.jpg"
-                    location="Private room in the center of London"
-                    title="Stay at this spacious Edwardian House"
-                    description="1 guest · 1 bedrooom · 1 bed · 1.5 shared bathrooms · Wifi · Kitchen · Free Parking · Washing Machine"
-                    star={4.73}
-                    price="30USD / night"
-                    total=" 100USD total"
-                />
-                <SearchResult 
-                    img="https://i.ytimg.com/vi/-rOqeFsGMcI/maxresdefault.jpg"
-                    location="Private room in the center of London"
-                    title="Stay at this spacious Edwardian House"
-                    description="1 guest · 1 bedrooom · 1 bed · 1.5 shared bathrooms · Wifi · Kitchen · Free Parking · Washing Machine"
-                    star={4.73}
-                    price="30USD / night"
-                    total=" 100USD total"
-                />
-                <SearchResult 
-                    img="https://i.ytimg.com/vi/-rOqeFsGMcI/maxresdefault.jpg"
-                    location="Private room in the center of London"
-                    title="Stay at this spacious Edwardian House"
-                    description="1 guest · 1 bedrooom · 1 bed · 1.5 shared bathrooms · Wifi · Kitchen · Free Parking · Washing Machine"
-                    star={4.73}
-                    price="30USD / night"
-                    total=" 100USD total"
-                />
-                <SearchResult 
-                    img="https://i.ytimg.com/vi/-rOqeFsGMcI/maxresdefault.jpg"
-                    location="Private room in the center of London"
-                    title="Stay at this spacious Edwardian House"
-                    description="1 guest · 1 bedrooom · 1 bed · 1.5 shared bathrooms · Wifi · Kitchen · Free Parking · Washing Machine"
-                    star={4.73}
-                    price="30USD / night"
-                    total=" 100USD total"
-                />
-                <SearchResult 
-                    img="https://i.ytimg.com/vi/-rOqeFsGMcI/maxresdefault.jpg"
-                    location="Private room in the center of London"
-                    title="Stay at this spacious Edwardian House"
-                    description="1 guest · 1 bedrooom · 1 bed · 1.5 shared bathrooms · Wifi · Kitchen · Free Parking · Washing Machine"
-                    star={4.73}
-                    price="30USD / night"
-                    total=" 100USD total"
-                />
+                {this.props.listing.map(result =>
+                    <SearchResult 
+                        img = {result.img}
+                        location= {result.location}
+                        title= {result.title}
+                        description= {result.description}
+                        star= {result.star}
+                        price= {result.price}
+                        total= {result.total}
+                    />
+                )}
             </div>
         )
     }
 }
 
 function mapState(state) {
-    const { users, authentication } = state;
-    const { user } = authentication;
-    return { user, users };
+    const listing = state.listing.listing
+    const loading = state.listing.loading
+    return { listing, loading }
 }
 
 const actionCreators = {
