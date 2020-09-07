@@ -5,6 +5,7 @@ import LanguageIcon from "@material-ui/icons/Language"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import { Link } from 'react-router-dom'
 import SimpleMenu from './SimpleMenu'
+import { Button } from '@material-ui/core'
 
 function Header() {
     return (
@@ -22,7 +23,7 @@ function Header() {
             </div>
 
             <div className='header_right'>
-                <p>Become a host</p>
+                <Button >Become a host</ Button >
                 <LanguageIcon />
                 <ExpandMoreIcon />
                 <SimpleMenu />

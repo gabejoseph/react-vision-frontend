@@ -20,15 +20,9 @@ function App() {
           <Header />
 
             <Switch>
-              <Route path="/search" >
-                <SearchPage />
-              </Route>
-              <Route path="/login" >
-                <Login />
-              </Route>
-              <Route path="/" >
-                <Home />
-              </Route>
+              <Route path="/search" component={SearchPage} />
+              <Route path="/login" component={Login} />
+              <Route path="/" component={Home} />
             </ Switch>
 
           {/* <Map /> */}

@@ -39,3 +39,8 @@
     width: 15vw;
     margin-right: 80px;
 }
+ 
+.header_right > button {    
+    text-transform: inherit;
+}
+
