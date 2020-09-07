@@ -5,9 +5,18 @@ import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../actions/user.actions';
+import { listingActions } from '../actions/listing.actions';
 
 
 class SearchPage extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        this.props.getListings()
+    }
 
     render() {
         return (
@@ -99,8 +108,7 @@ function mapState(state) {
 }
 
 const actionCreators = {
-    getUsers: userActions.getAll,
-    deleteUser: userActions.delete
+    getListings: listingActions.getListings
 }
 
 export default connect(mapState, actionCreators)(SearchPage);
