@@ -3,8 +3,8 @@ import './Header.css'
 import SearchIcon from "@material-ui/icons/Search"
 import LanguageIcon from "@material-ui/icons/Language"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
-import { Avatar } from "@material-ui/core"
 import { Link } from 'react-router-dom'
+import SimpleMenu from './SimpleMenu'
 
 function Header() {
     return (
@@ -25,7 +25,7 @@ function Header() {
                 <p>Become a host</p>
                 <LanguageIcon />
                 <ExpandMoreIcon />
-                <Avatar />
+                <SimpleMenu />
             </div>
         </div>
 
