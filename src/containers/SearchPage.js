@@ -44,6 +44,7 @@ class SearchPage extends React.Component {
                         variant="outlined">More filters
                     </Button>
                 </div>
+                {}
                 {this.props.loading ? <h1>loading...</h1> : 
                     this.props.listing.map(result =>
                         <SearchResult 
