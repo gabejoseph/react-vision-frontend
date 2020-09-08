@@ -21,6 +21,8 @@ class SearchPage extends React.Component {
     }
 
     render() {
+        const loading = this.props.loading
+        console.log(loading)
         return (
             // Fantastic point to implement store
             <div>
@@ -44,10 +46,10 @@ class SearchPage extends React.Component {
                         variant="outlined">More filters
                     </Button>
                 </div>
-                {}
-                {this.props.loading ? <h1>loading...</h1> : 
+                {loading ? <h1>loading...</h1> : 
                     this.props.listing.map(result =>
                         <SearchResult 
+                            key = {result.id}
                             img = {result.img}
                             location= {result.location}
                             title= {result.title}
@@ -58,17 +60,6 @@ class SearchPage extends React.Component {
                         />
                     )
                 }
-                {this.props.listing.map(result =>
-                    <SearchResult 
-                        img = {result.img}
-                        location= {result.location}
-                        title= {result.title}
-                        description= {result.description}
-                        star= {result.star}
-                        price= {result.price}
-                        total= {result.total}
-                    />
-                )}
             </div>
         )
     }

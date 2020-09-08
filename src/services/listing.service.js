@@ -6,12 +6,12 @@ const listingService = {
 
 const BASE_URL = 'http://localhost:4000'
 
-function getAll() {
+async function getAll() {
     const requestOptions = {
         method: 'GET'    
     };
 
-    return fetch(`${BASE_URL}/listings`, requestOptions).then(handleResponse);
+    return await fetch(`${BASE_URL}/listings`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {
