@@ -8,6 +8,10 @@ import SimpleMenu from './SimpleMenu'
 import { Button } from '@material-ui/core'
 
 function Header() {
+    
+    const user = JSON.parse(localStorage.user)
+    console.log(user.logged_in)
+
     return (
         <div className="header" >
             <Link to='/' >
