@@ -10,6 +10,8 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.props.getUsers();
+        const user = JSON.parse(localStorage.user)
+        console.log(user.logged_in)
     }
 
     // handleDeleteUser(id) {
