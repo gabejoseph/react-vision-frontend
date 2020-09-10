@@ -5,35 +5,58 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { Avatar } from "@material-ui/core"
 import { Link } from 'react-router-dom'
 
-export default function SimpleMenu() {
+class SimpleMenu extends React.Component {
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      anchorEl: null
+    }
+
+    // this.handleClick = this.handleClick.bind(this)
+    // this.handleClose = this.handleClose.bind(this)
+    // this.handleLogout = this.handleLogout.bind(this)
+  }
+
+  handleClick(event) {
+    this.setState({
+      anchorEl: event.currentTarget
+    })
+  }
+
+  handleClose() {
+    this.setState({
+      anchorEl: null
+    })
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  handleLogout() {
+    this.props.logout();
+  }
 
-  return (
-    <div>
-        <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-            <Avatar />
-        </Button>
-        <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-        >
-            <Link to='/login' >
-                <MenuItem onClick={handleClose}>Login</MenuItem>
-            </Link>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
-        </Menu>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
+              <Avatar />
+          </Button>
+          <Menu
+              id="simple-menu"
+              anchorEl={this.state.anchorEl}
+              keepMounted
+              open={Boolean(this.state.anchorEl)}
+              onClose={this.handleClose}
+          >
+              <Link to='/login' >
+                  <MenuItem onClick={this.handleClose}>Login</MenuItem>
+              </Link>
+              <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+          </Menu>
+      </div>
+    );
+  }
 }
+
+export default SimpleMenu
