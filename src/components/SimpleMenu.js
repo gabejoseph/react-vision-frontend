@@ -4,6 +4,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Avatar } from "@material-ui/core"
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { userActions } from '../actions/user.actions'
 
 class SimpleMenu extends React.Component {
 
@@ -37,9 +39,13 @@ class SimpleMenu extends React.Component {
   }
 
   render() {
+    // const user = JSON.parse(localStorage.user)
+    const user = "blank"
+    console.log(localStorage)
+
     return (
       <div>
-          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
+          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={(event) => this.handleClick()}>
               <Avatar />
           </Button>
           <Menu
@@ -49,14 +55,20 @@ class SimpleMenu extends React.Component {
               open={Boolean(this.state.anchorEl)}
               onClose={this.handleClose}
           >
-              <Link to='/login' >
-                  <MenuItem onClick={this.handleClose}>Login</MenuItem>
-              </Link>
-              <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+             {user ? <MenuItem onClick={this.handleLogout}>Logout</MenuItem> : 
+               <>
+                 <Link to='/login' ><MenuItem onClick={this.handleClose}>Login</MenuItem></Link>
+                 <MenuItem onClick={this.handleLogout}>Logout</MenuItem>   
+               </>
+             }
           </Menu>
       </div>
     );
   }
 }
 
-export default SimpleMenu
+const actionCreators = {
+  logout: userActions.logout
+};
+
+export default connect(null, actionCreators)(SimpleMenu)
