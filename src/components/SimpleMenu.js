@@ -9,6 +9,9 @@ export default function SimpleMenu() {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+  const user = JSON.parse(localStorage.user)
+  console.log(user.logged_in)
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -29,10 +32,12 @@ export default function SimpleMenu() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
         >
-            <Link to='/login' >
-                <MenuItem onClick={handleClose}>Login</MenuItem>
-            </Link>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+          {user ? <MenuItem onClick={handleClose}>Logout</MenuItem> : 
+            <>
+              <Link to='/login' ><MenuItem onClick={handleClose}>Login</MenuItem></Link>
+              <MenuItem onClick={handleClose}>Logout</MenuItem>   
+            </>
+          }
         </Menu>
     </div>
   );
