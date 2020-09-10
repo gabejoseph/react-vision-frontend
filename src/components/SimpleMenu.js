@@ -17,9 +17,11 @@ class SimpleMenu extends React.Component {
       anchorEl: null
     }
 
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick(event) {
+    console.log("clicked")
     this.setState({
       anchorEl: event.currentTarget
     })
@@ -41,7 +43,7 @@ class SimpleMenu extends React.Component {
 
     return (
       <div>
-          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={(event) => this.handleClick}>
+          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
               <Avatar />
           </Button>
           <Menu
