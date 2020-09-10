@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { Avatar } from "@material-ui/core"
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Login from '../containers/Login';
+import userActions from '../actions/user.actions'
 
 
 class SimpleMenu extends React.Component {
@@ -23,7 +23,6 @@ class SimpleMenu extends React.Component {
   }
 
   handleClick(event) {
-    console.log("clicked")
     this.setState({
       anchorEl: event.currentTarget
     })
@@ -67,4 +66,13 @@ class SimpleMenu extends React.Component {
   }
 }
 
-export default SimpleMenu
+const actionCreators = {
+  logout: userActions.logout
+};
+
+export default connect(null, actionCreators)(SimpleMenu)
+
+// function mapState(state) {
+//   const { alert } = state;
+//   return { alert };
+// }
