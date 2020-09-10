@@ -17,6 +17,8 @@ class SimpleMenu extends React.Component {
       anchorEl: null
     }
 
+    debugger
+
     // this.handleClick = this.handleClick.bind(this)
     // this.handleClose = this.handleClose.bind(this)
     // this.handleLogout = this.handleLogout.bind(this)
@@ -39,9 +41,6 @@ class SimpleMenu extends React.Component {
   }
 
   render() {
-    // const user = JSON.parse(localStorage.user)
-    // const user = "blank"
-    // console.log(localStorage)
 
     return (
       <div>
