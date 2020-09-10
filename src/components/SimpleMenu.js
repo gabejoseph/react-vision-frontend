@@ -18,6 +18,8 @@ class SimpleMenu extends React.Component {
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   handleClick(event) {
@@ -51,12 +53,12 @@ class SimpleMenu extends React.Component {
               anchorEl={this.state.anchorEl}
               keepMounted
               open={Boolean(this.state.anchorEl)}
-              onClose={() => this.handleClose}
+              onClose={this.handleClose}
           >
-            {user ? <MenuItem onClick={() => this.handleLogout}>Logout</MenuItem> : 
+            {user ? <MenuItem onClick={this.handleLogout}>Logout</MenuItem> : 
               <>
                 <Link to='/login' ><MenuItem onClick={() => this.handleClose}>Login</MenuItem></Link>
-                <MenuItem onClick={() => this.handleLogout}>Logout</MenuItem>   
+                <MenuItem onClick={this.handleLogout}>Logout</MenuItem>   
               </>
             }
           </Menu>
