@@ -17,10 +17,8 @@ class SimpleMenu extends React.Component {
       anchorEl: null
     }
 
-    debugger
-
     // this.handleClick = this.handleClick.bind(this)
-    // this.handleClose = this.handleClose.bind(this)
+    this.handleClose = this.handleClose.bind(this)
     // this.handleLogout = this.handleLogout.bind(this)
   }
 
@@ -42,6 +40,13 @@ class SimpleMenu extends React.Component {
 
   render() {
 
+    const local = localStorage
+    // if (local.user) {
+    //   console.log("success")
+    // } else {
+    //   console.log("fail")
+    // }
+
     return (
       <div>
           <Button aria-controls="simple-menu" aria-haspopup="true" onClick={(event) => this.handleClick(event)}>
@@ -54,14 +59,14 @@ class SimpleMenu extends React.Component {
               open={Boolean(this.state.anchorEl)}
               onClose={this.handleClose}
           >
-            <Link to='/login' ><MenuItem onClick={this.handleClose}>Login</MenuItem></Link>
-            <MenuItem onClick={this.handleLogout}>Logout</MenuItem>            
-             {/* {user ? <MenuItem onClick={this.handleLogout}>Logout</MenuItem> : 
-               <>
+            {/* <Link to='/login' ><MenuItem onClick={this.handleClose}>Login</MenuItem></Link>
+            <MenuItem onClick={this.handleLogout}>Logout</MenuItem>             */}
+             {local.user ? <MenuItem onClick={this.handleLogout}>Logout</MenuItem> : 
+               <div>
                  <Link to='/login' ><MenuItem onClick={this.handleClose}>Login</MenuItem></Link>
                  <MenuItem onClick={this.handleLogout}>Logout</MenuItem>   
-               </>
-             } */}
+               </div>
+             }
           </Menu>
       </div>
     );
