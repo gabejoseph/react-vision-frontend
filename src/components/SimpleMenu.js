@@ -41,7 +41,7 @@ class SimpleMenu extends React.Component {
   render() {
     // const user = JSON.parse(localStorage.user)
     // const user = "blank"
-    console.log(localStorage)
+    // console.log(localStorage)
 
     return (
       <div>
@@ -55,6 +55,8 @@ class SimpleMenu extends React.Component {
               open={Boolean(this.state.anchorEl)}
               onClose={this.handleClose}
           >
+            <Link to='/login' ><MenuItem onClick={this.handleClose}>Login</MenuItem></Link>
+            <MenuItem onClick={this.handleLogout}>Logout</MenuItem>            
              {/* {user ? <MenuItem onClick={this.handleLogout}>Logout</MenuItem> : 
                <>
                  <Link to='/login' ><MenuItem onClick={this.handleClose}>Login</MenuItem></Link>
