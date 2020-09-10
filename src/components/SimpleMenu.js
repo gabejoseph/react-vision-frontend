@@ -40,12 +40,12 @@ class SimpleMenu extends React.Component {
 
   render() {
     // const user = JSON.parse(localStorage.user)
-    const user = "blank"
+    // const user = "blank"
     console.log(localStorage)
 
     return (
       <div>
-          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={(event) => this.handleClick()}>
+          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={(event) => this.handleClick(event)}>
               <Avatar />
           </Button>
           <Menu
@@ -55,12 +55,12 @@ class SimpleMenu extends React.Component {
               open={Boolean(this.state.anchorEl)}
               onClose={this.handleClose}
           >
-             {user ? <MenuItem onClick={this.handleLogout}>Logout</MenuItem> : 
+             {/* {user ? <MenuItem onClick={this.handleLogout}>Logout</MenuItem> : 
                <>
                  <Link to='/login' ><MenuItem onClick={this.handleClose}>Login</MenuItem></Link>
                  <MenuItem onClick={this.handleLogout}>Logout</MenuItem>   
                </>
-             }
+             } */}
           </Menu>
       </div>
     );
