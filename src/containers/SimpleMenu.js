@@ -57,7 +57,7 @@ class SimpleMenu extends React.Component {
           >
              {local.user ? <MenuItem onClick={() => this.handleLogout()}>Logout</MenuItem> : 
                <div>
-                 <Link to='/login' ><MenuItem onClick={() => this.handleClose()}>Login</MenuItem></Link>
+                 <Link to='/login' ><MenuItem onClick={() => this.handleClose()}>Login / Register</MenuItem></Link>
                  <MenuItem onClick={() => this.handleLogout()}>Logout</MenuItem>   
                </div>
              }

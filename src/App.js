@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import SearchPage from './containers/SearchPage'
 import Login from './containers/Login'
+import Register from './containers/Register'
 
 // import Map from './components/Map'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -20,6 +21,7 @@ function App() {
           <Header />
 
             <Switch>
+              <Route path="/register" component={Register} />
               <Route path="/search" component={SearchPage} />
               <Route path="/login" component={Login} />
               <Route path="/" component={Home} />
