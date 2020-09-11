@@ -61,7 +61,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`${BASE_URL}/users/register`, requestOptions).then(handleResponse);
+    return fetch(`${BASE_URL}/registrations`, requestOptions).then(handleResponse);
 }
 
 function update(user) {
