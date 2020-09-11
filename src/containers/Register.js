@@ -11,6 +11,7 @@ class Register extends React.Component {
         super(props);
 
         this.state = {
+            // name, email, username and password
             user: {
                 firstName: '',
                 lastName: '',
@@ -51,6 +52,7 @@ class Register extends React.Component {
 
         this.setState({ submitted: true });
         const { user } = this.state;
+        // user.name user.email user.username user.password
         if (user.firstName && user.lastName && user.username && user.password) {
             this.props.register(user);
         }
@@ -63,16 +65,25 @@ class Register extends React.Component {
             <div className="col-md-6 col-md-offset-3">
                 <h2>Register</h2>
                 <form name="form" onSubmit={(event) => this.handleSubmit(event)}>
+                    {/* !user.name */}
                     <div className={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
+                        {/* name instead of first name */}
                         <label htmlFor="firstName">First Name</label>
+                        {/* user.name */}
                         <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={(event) => this.handleChange(event)} />
+                        {/* name instead of firstname */}
                         {submitted && !user.firstName &&
+                            // material-ui alert toast instead
                             <div className="help-block">First Name is required</div>
                         }
                     </div>
+                    {/* user.email */}
                     <div className={'form-group' + (submitted && !user.lastName ? ' has-error' : '')}>
+                        {/* htmlFor="email" */}
                         <label htmlFor="lastName">Last Name</label>
+                        {/* name="email" value={user.email} */}
                         <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={(event) => this.handleChange(event)} />
+                        {/* !user.email */}
                         {submitted && !user.lastName &&
                             <div className="help-block">Last Name is required</div>
                         }
