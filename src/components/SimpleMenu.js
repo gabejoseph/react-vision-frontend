@@ -36,16 +36,12 @@ class SimpleMenu extends React.Component {
 
   handleLogout() {
     this.props.logout();
+    console.log(localStorage)
   }
 
   render() {
 
     const local = localStorage
-    // if (local.user) {
-    //   console.log("success")
-    // } else {
-    //   console.log("fail")
-    // }
 
     return (
       <div>
@@ -57,14 +53,12 @@ class SimpleMenu extends React.Component {
               anchorEl={this.state.anchorEl}
               keepMounted
               open={Boolean(this.state.anchorEl)}
-              onClose={this.handleClose}
+              onClose={() => this.handleClose()}
           >
-            {/* <Link to='/login' ><MenuItem onClick={this.handleClose}>Login</MenuItem></Link>
-            <MenuItem onClick={this.handleLogout}>Logout</MenuItem>             */}
-             {local.user ? <MenuItem onClick={this.handleLogout}>Logout</MenuItem> : 
+             {local.user ? <MenuItem onClick={() => this.handleLogout()}>Logout</MenuItem> : 
                <div>
-                 <Link to='/login' ><MenuItem onClick={this.handleClose}>Login</MenuItem></Link>
-                 <MenuItem onClick={this.handleLogout}>Logout</MenuItem>   
+                 <Link to='/login' ><MenuItem onClick={() => this.handleClose()}>Login</MenuItem></Link>
+                 <MenuItem onClick={() => this.handleLogout()}>Logout</MenuItem>   
                </div>
              }
           </Menu>
