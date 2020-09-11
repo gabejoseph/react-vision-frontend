@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { makestyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 
 import { userActions } from '../actions/user.actions'
 
@@ -21,20 +22,8 @@ class Register extends React.Component {
             submitted: false
         };
 
-        // this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-
-        // const useStyles = makeStyles((theme) => ({
-        //     root: {
-        //       '& > *': {
-        //         margin: theme.spacing(1),
-        //         width: '25ch',
-        //       },
-        //     },
-        //   }));
-
-        // const classes = useStyles();
     }
+
 
     handleChange(event) {
         const { name, value } = event.target;
@@ -58,45 +47,45 @@ class Register extends React.Component {
         }
     }
 
+
+
+
     render() {
         const { registering  } = this.props;
         const { user, submitted } = this.state;
+
         return (
             <div className="col-md-6 col-md-offset-3">
                 <h2>Register</h2>
                 <form name="form" onSubmit={(event) => this.handleSubmit(event)}>
                     <div className={'form-group' + (submitted && !user.name ? ' has-error' : '')}>
-                        <label htmlFor="email">Name</label>
-                        <input type="text" className="form-control" name="name" value={user.name} onChange={(event) => this.handleChange(event)} />
+                        <TextField label="Name" htmlFor="name" type="text" className="form-control" name="name" value={user.name} onChange={(event) => this.handleChange(event)} />
                         {submitted && !user.name &&
                             <div className="help-block">Name is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.email ? ' has-error' : '')}>
-                        <label htmlFor="email">Email</label>
-                        <input type="text" className="form-control" name="email" value={user.email} onChange={(event) => this.handleChange(event)} />
+                        <TextField type="text" label="Email" htmlFor="email" className="form-control" name="email" value={user.email} onChange={(event) => this.handleChange(event)} />
                         {submitted && !user.email &&
                             <div className="help-block">Email is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
-                        <label htmlFor="username">Username</label>
-                        <input type="text" className="form-control" name="username" value={user.username} onChange={(event) => this.handleChange(event)} />
+                        <TextField htmlFor="username" label="Username" type="text" className="form-control" name="username" value={user.username} onChange={(event) => this.handleChange(event)} />
                         {submitted && !user.username &&
                             <div className="help-block">Username is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" value={user.password} onChange={(event) => this.handleChange(event)} />
+                        <TextField htmlFor="password" label="Password" type="password" className="form-control" name="password" value={user.password} onChange={(event) => this.handleChange(event)} />
                         {submitted && !user.password &&
                             <div className="help-block">Password is required</div>
                         }
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary">Register</button>
+                        <Button className="btn btn-primary">Register</Button>
                         {registering && <strong>Loading ... </strong>}
-                        <Link to="/" className="btn btn-link">Cancel</Link>
+                        <Button variant="contained" color="primary" ><Link to="/" className="btn btn-link">Cancel</Link></Button>
                     </div>
                 </form>
             </div>
