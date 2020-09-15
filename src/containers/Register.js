@@ -85,7 +85,7 @@ class Register extends React.Component {
                     <div className="form-group">
                         <Button className="btn btn-primary">Register</Button>
                         {registering && <strong>Loading ... </strong>}
-                        <Button variant="contained" color="primary" ><Link to="/" className="btn btn-link">Cancel</Link></Button>
+                        <Button  ><Link to="/" >Cancel</Link></Button>
                     </div>
                 </form>
             </div>
