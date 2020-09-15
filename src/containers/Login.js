@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 
 import { userActions } from '../actions/user.actions';
 
@@ -45,23 +47,21 @@ class Login extends React.Component {
                 <h2>Login</h2>
                 <form name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-                        <label htmlFor="username">Username</label>
-                        <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
+                        <TextField label="Username" htmlFor="username" type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
                         {submitted && !username &&
                             <div className="help-block">Username is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" value={password} onChange={this.handleChange} />
+                        <TextField htmlFor="password" label="Password" type="password" className="form-control" name="password" value={password} onChange={this.handleChange} />
                         {submitted && !password &&
                             <div className="help-block">Password is required</div>
                         }
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary">Login</button>
+                        <Button >Login</Button>
                         {loggingIn}
-                        <Link to="/register" className="btn btn-link">Register</Link>
+                        <Button><Link to="/register" className="btn btn-link">Register</Link></Button>
                     </div>
                 </form>
             </div>
