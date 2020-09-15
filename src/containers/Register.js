@@ -44,6 +44,8 @@ class Register extends React.Component {
         // user.name user.email user.username user.password
         if (user.name && user.email && user.username && user.password) {
             this.props.register(user);
+            this.props.login(user.username, user.password);
+            this.props.history.push('/');
         }
     }
 
@@ -83,7 +85,7 @@ class Register extends React.Component {
                         }
                     </div>
                     <div className="form-group">
-                        <Button className="btn btn-primary">Register</Button>
+                        <button className="btn btn-primary">Register</button>
                         {registering && <strong>Loading ... </strong>}
                         <Button><Link to="/" >Cancel</Link></Button>
                     </div>
@@ -99,7 +101,8 @@ function mapState(state) {
 }
 
 const actionCreators = {
-    register: userActions.register
+    register: userActions.register,
+    login: userActions.login
 }
 
 export default connect(mapState, actionCreators)(Register);

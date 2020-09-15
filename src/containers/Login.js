@@ -47,22 +47,33 @@ class Login extends React.Component {
                 <h2>Login</h2>
                 <form name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-                        <TextField label="Username" htmlFor="username" type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
+                        <TextField type="text" label="Username" htmlFor="username" className="form-control" name="username" value={username} onChange={this.handleChange} />
                         {submitted && !username &&
                             <div className="help-block">Username is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                        <TextField htmlFor="password" label="Password" type="password" className="form-control" name="password" value={password} onChange={this.handleChange} />
+                        <TextField type="password" htmlFor="password" label="Password" className="form-control" name="password" value={password} onChange={this.handleChange} />
                         {submitted && !password &&
                             <div className="help-block">Password is required</div>
                         }
                     </div>
                     <div className="form-group">
-                        <Button >Login</Button>
+                        <button className="btn btn-primary">Login</button>
                         {loggingIn}
                         <Button><Link to="/register" className="btn btn-link">Register</Link></Button>
                     </div>
+                    {/* <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
+                        <TextField htmlFor="password" label="Password" type="password" className="form-control" name="password" value={user.password} onChange={(event) => this.handleChange(event)} />
+                        {submitted && !user.password &&
+                            <div className="help-block">Password is required</div>
+                        }
+                    </div>
+                    <div className="form-group">
+                        <Button className="btn btn-primary">Register</Button>
+                        {registering && <strong>Loading ... </strong>}
+                        <Button><Link to="/" >Cancel</Link></Button>
+                    </div> */}
                 </form>
             </div>
         );
