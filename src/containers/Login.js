@@ -63,17 +63,6 @@ class Login extends React.Component {
                         {loggingIn}
                         <Button><Link to="/register" className="btn btn-link">Register</Link></Button>
                     </div>
-                    {/* <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
-                        <TextField htmlFor="password" label="Password" type="password" className="form-control" name="password" value={user.password} onChange={(event) => this.handleChange(event)} />
-                        {submitted && !user.password &&
-                            <div className="help-block">Password is required</div>
-                        }
-                    </div>
-                    <div className="form-group">
-                        <Button className="btn btn-primary">Register</Button>
-                        {registering && <strong>Loading ... </strong>}
-                        <Button><Link to="/" >Cancel</Link></Button>
-                    </div> */}
                 </form>
             </div>
         );

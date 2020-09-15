@@ -13,6 +13,11 @@ class SearchPage extends React.Component {
     constructor(props) {
         super(props);
 
+
+        this.state = {
+            listings: []
+        }
+
     }
 
     componentDidMount() {
@@ -20,9 +25,28 @@ class SearchPage extends React.Component {
 
     }
 
+    handleSort() {
+        const listings = [ ...this.props.listing ]
+        listings.sort(function(a, b) {
+            let priceA = a.price // ignore upper and lowercase
+            let priceB = b.price // ignore upper and lowercase
+                if (priceA < priceB) {
+                    return -1;
+                }
+                if (priceA > priceB) {
+                    return 1;
+                }
+
+        })
+        this.setState({ 
+            listings
+        })
+    }
+
+
     render() {
         const loading = this.props.loading
-        console.log(loading)
+
         return (
             // Fantastic point to implement store
             <div>
@@ -37,7 +61,7 @@ class SearchPage extends React.Component {
                         variant="outlined">Type of place
                     </Button>
                     <Button 
-                        variant="outlined">Price
+                        variant="outlined" onClick={() => {this.handleSort()}} >Price
                     </Button>
                     <Button 
                         variant="outlined">Rooms and beds
@@ -46,7 +70,23 @@ class SearchPage extends React.Component {
                         variant="outlined">More filters
                     </Button>
                 </div>
-                {loading ? <h1>loading...</h1> : 
+                {loading ? <h1>loading...</h1>  :
+                
+                    (this.state.listings.length > 0 ? 
+                        this.state.listings.map(result =>
+                            <SearchResult 
+                                key = {result.id}
+                                img = {result.img}
+                                location= {result.location}
+                                title= {result.title}
+                                description= {result.description}
+                                star= {result.star}
+                                price= {result.price}
+                                total= {result.total}
+                            />
+                        )
+                    
+                    :
                     this.props.listing.map(result =>
                         <SearchResult 
                             key = {result.id}
@@ -58,12 +98,13 @@ class SearchPage extends React.Component {
                             price= {result.price}
                             total= {result.total}
                         />
-                    )
+                    ))
                 }
             </div>
         )
     }
 }
+
 
 function mapState(state) {
     const listing = state.listing.listing
