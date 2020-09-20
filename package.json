@@ -2,6 +2,10 @@
   "name": "react-vision-frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.3.0",
+    "npm": "6.14.7"
+  },
   "dependencies": {
     "@google-cloud/vision": "^2.1.1",
     "@material-ui/core": "^4.11.0",
