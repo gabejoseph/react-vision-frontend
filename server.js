@@ -1,11 +1,14 @@
-
 const express = require('express');
 const path = require('path');
-const PORT = process.env.PORT || 5000;
-
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .get('/', (req, res) => res.render('pages/index'))
-  .get('/search', (req, res) => res.send(search()))
-  .listen(PORT);
+const port = process.env.PORT || 5000;
+const app = express();
+// the __dirname is the current directory from where the script is running
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/ping', function (req, res) {
+ return res.send('pong');
+});
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+app.listen(port);
