@@ -8,7 +8,7 @@ export const userService = {
     delete: _delete
 };
 
-const BASE_URL = 'http://localhost:4000'
+const BASE_URL = 'https://rails-vision-backend.herokuapp.com'
 
 function login(email, password) {
     const requestOptions = {

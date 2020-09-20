@@ -4,7 +4,7 @@ const listingService = {
     delete: _delete
 };
 
-const BASE_URL = 'http://localhost:4000'
+const BASE_URL = 'https://rails-vision-backend.herokuapp.com'
 
 async function getAll() {
     const requestOptions = {
