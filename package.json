@@ -2,6 +2,7 @@
   "name": "react-vision-frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@google-cloud/vision": "^2.1.1",
     "@material-ui/core": "^4.11.0",
