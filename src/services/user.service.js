@@ -23,9 +23,10 @@ function login(email, password) {
     return fetch(`${BASE_URL}/sessions`, requestOptions)
         .then(handleResponse)
         .then(user => {
+            if (user.status === "created") {
+                localStorage.setItem('user', JSON.stringify(user));
+            }
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
-
             return user;
         });
 }
@@ -97,8 +98,9 @@ function handleResponse(response) {
             }
             const error = (data && data.message) || response.statusText;
             return Promise.reject(error);
+        } else {
+            console.log(data)
+            return data;
         }
-        console.log(data)
-        return data;
     });
 }
