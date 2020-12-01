@@ -19,20 +19,6 @@ class Header extends React.Component {
         }
     }
 
-    componentDidMount() {
-        handleLogin();
-    }
-
-    handleLogin = () => {
-        let user = JSON.parse(localStorage.user)
-        user ? this.setState({
-            user: user
-        })
-        :
-        ""
-    }
-
-
     render () {
         return(
         <div className="header" >
