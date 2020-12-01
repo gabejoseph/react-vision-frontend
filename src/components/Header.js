@@ -25,8 +25,15 @@ function Header() {
 
             <div className='header_right'>
                 <Button >Become a host</ Button >
+                {localStorage.user 
+                ? 
+                <>
                 <LanguageIcon />
                 <ExpandMoreIcon />
+                </>
+                :
+                <></>
+                }
                 <SimpleMenu />
             </div>
         </div>
