@@ -34,7 +34,7 @@ class Login extends React.Component {
         const { email, password } = this.state;
         if (email && password) {
             this.props.login(email, password);
-            this.props.history.push('/')
+            this.props.history.push('/');
         }
     }
 

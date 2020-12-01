@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './Header.css'
 import SearchIcon from "@material-ui/icons/Search"
 import LanguageIcon from "@material-ui/icons/Language"
@@ -7,9 +7,34 @@ import { Link } from 'react-router-dom'
 import SimpleMenu from '../containers/SimpleMenu'
 import { Button } from '@material-ui/core'
 
-function Header() {
+class Header extends React.Component {
+    
+    constructor () {
+        super()
 
-    return (
+        let user = localStorage.user ? JSON.parse(localStorage.user) : ""
+
+        this.state = {
+            user: user
+        }
+    }
+
+    componentDidMount() {
+        handleLogin();
+    }
+
+    handleLogin = () => {
+        let user = JSON.parse(localStorage.user)
+        user ? this.setState({
+            user: user
+        })
+        :
+        ""
+    }
+
+
+    render () {
+        return(
         <div className="header" >
             <Link to='/' >
                 <img 
@@ -24,8 +49,9 @@ function Header() {
             </div>
 
             <div className='header_right'>
+                {console.log(this.state.user, "hi!!")}
                 <Button >Become a host</ Button >
-                {localStorage.user 
+                {this.state.user
                 ? 
                 <>
                 <LanguageIcon />
@@ -37,8 +63,8 @@ function Header() {
                 <SimpleMenu />
             </div>
         </div>
-
-    )
+        
+    )}
 }
 
 export default Header
