@@ -1,21 +1,6 @@
-const listingService = {
-    getAll,
-    newListing,
-    update,
-    delete: _delete
-};
-
 const BASE_URL = 'https://rails-vision-backend.herokuapp.com'
 
-async function getAll() {
-    const requestOptions = {
-        method: 'GET'    
-    };
-
-    return await fetch(`${BASE_URL}/listings`, requestOptions).then(handleResponse);
-}
-
-function newListing(listing) {
+const newListing = (listing) => {
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -29,7 +14,15 @@ function newListing(listing) {
 
 }
 
-function getById(id) {
+const getAll = async () => {
+    const requestOptions = {
+        method: 'GET'    
+    };
+
+    return await fetch(`${BASE_URL}/listings`, requestOptions).then(handleResponse);
+}
+
+const getById = (id) => {
     const requestOptions = {
         method: 'GET'
     };
@@ -37,7 +30,7 @@ function getById(id) {
     return fetch(`${BASE_URL}/listings/${id}`, requestOptions).then(handleResponse);
 }
 
-function update(user) {
+const update = (user) => {
     const requestOptions = {
         method: 'PATCH',
         headers: {
@@ -51,7 +44,7 @@ function update(user) {
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
-function _delete(id) {
+const _delete = (id) => {
     const requestOptions = {
         method: 'DELETE'
     };
@@ -59,7 +52,7 @@ function _delete(id) {
     return fetch(`${BASE_URL}/users/${id}`, requestOptions).then(handleResponse);
 }
 
-function handleResponse(response) {
+const handleResponse = (response) => {
     return response.text().then(text => {
         const data = text && JSON.parse(text);
         if (!response.ok) {
@@ -74,5 +67,12 @@ function handleResponse(response) {
         return data;
     });
 }
+
+const listingService = {
+    getAll,
+    newListing,
+    update,
+    delete: _delete
+};
 
 export default listingService

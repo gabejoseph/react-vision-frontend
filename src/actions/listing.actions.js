@@ -4,12 +4,7 @@ import service from '../services/listing.service'
 import { alertActions } from './alert.actions';
 import listingConstants from '../constants/listing.constants';
 
-export const listingActions = { 
-    getListings, 
-    createListing
-}
-
-function getListings() {
+const getListings = () => {
     return dispatch => {
         dispatch(request());
         service.getAll()
@@ -19,14 +14,13 @@ function getListings() {
                     // history.push('/');
                 },
             );
+        const request = () => { return { type: constants.GETALL_REQUEST } }
+        const success = (listing) => { return { type: constants.GETALL_SUCCESS, listing } }
+        
     };
-
-    function request() { return { type: constants.GETALL_REQUEST } }
-    function success(listing) { return { type: constants.GETALL_SUCCESS, listing } }
-
 }
 
-function createListing(listing) {
+const createListing = (listing) => {
     return dispatch => {
         dispatch(request());
         service.newListing(listing)
@@ -46,6 +40,11 @@ function createListing(listing) {
         const failure = (error) => { return { type: listingConstants.LISTING_FAILURE, error } }
     };
 
- 
 }
+
+export const listingActions = { 
+    getListings, 
+    createListing
+}
+
 
