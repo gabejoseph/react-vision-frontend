@@ -1,5 +1,6 @@
 const listingService = {
     getAll,
+    newListing,
     update,
     delete: _delete
 };
@@ -14,12 +15,26 @@ async function getAll() {
     return await fetch(`${BASE_URL}/listings`, requestOptions).then(handleResponse);
 }
 
+function newListing(listing) {
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(listing)
+    };
+
+    return fetch(`${BASE_URL}/listings`, requestOptions).then(handleResponse);
+
+}
+
 function getById(id) {
     const requestOptions = {
         method: 'GET'
     };
 
-    return fetch(`${BASE_URL}/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${BASE_URL}/listings/${id}`, requestOptions).then(handleResponse);
 }
 
 function update(user) {
