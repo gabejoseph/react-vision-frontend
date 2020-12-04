@@ -85,7 +85,7 @@ function _delete(id) {
 
         userService.delete(id)
             .then(
-                user => dispatch(success(id)),
+                id => dispatch(success(id)),
                 error => dispatch(failure(id, error.toString()))
             );
     };

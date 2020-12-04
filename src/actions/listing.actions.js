@@ -3,6 +3,7 @@ import constants from '../constants/listing.constants'
 import service from '../services/listing.service'
 import { alertActions } from './alert.actions';
 import listingConstants from '../constants/listing.constants';
+import listingService from '../services/listing.service';
 
 const createListing = (listing) => {
     return dispatch => {
@@ -63,11 +64,27 @@ const updateListings = (listing) => {
     }
 }
 
+const deleteListings = (id) => {
+    return dispatch => {
+        dispatch(request(id));
+
+        listingService.delete(id)
+            .then(
+                id => dispatch(success(id)),
+                error => dispatch(failure(id, error.toString()))
+            )
+        const request = (id) => { return { type: userConstants.DELETE_REQUEST, id } }
+        const success = (id) => { return { type: userConstants.DELETE_SUCCESS, id } }
+        const failure = (id, error) => { return { type: userConstants.DELETE_FAILURE, id, error } }
+
+    }
+}
 
 export const listingActions = { 
     getListings, 
     createListing,
-    updateListings
+    updateListings,
+    deleteListings
 }
 
 
