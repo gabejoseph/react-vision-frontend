@@ -73,9 +73,9 @@ const deleteListings = (id) => {
                 id => dispatch(success(id)),
                 error => dispatch(failure(id, error.toString()))
             )
-        const request = (id) => { return { type: userConstants.DELETE_REQUEST, id } }
-        const success = (id) => { return { type: userConstants.DELETE_SUCCESS, id } }
-        const failure = (id, error) => { return { type: userConstants.DELETE_FAILURE, id, error } }
+        const request = (id) => { return { type: listingConstants.DELETE_REQUEST, id } }
+        const success = (id) => { return { type: listingConstants.DELETE_SUCCESS, id } }
+        const failure = (id, error) => { return { type: listingConstants.DELETE_ERROR, id, error } }
 
     }
 }
