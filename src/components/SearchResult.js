@@ -34,8 +34,13 @@ function SearchResult({
                         <StarIcon
                         className="searchResult_star" />
                         <p>
+                            {star
+                            ?
                             <strong>{star}
                             </strong>
+                            :
+                            <></>
+                            }
                         </p>
                     </div>
                     <div className="searchResults_price">
