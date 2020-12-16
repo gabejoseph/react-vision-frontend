@@ -2,10 +2,10 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Avatar } from "@material-ui/core"
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { userActions } from '../actions/user.actions'
+import { listingActions } from '../actions/listing.actions'
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+import { userActions } from '../actions/user.actions';
 
 class CreateListing extends React.Component {
 
@@ -34,9 +34,8 @@ class CreateListing extends React.Component {
     })
   };
 
-  handleLogout() {
-    this.props.logout();
-    this.handleClose();
+  handleNewListing = () => {
+
   }
 
   render() {
@@ -46,7 +45,7 @@ class CreateListing extends React.Component {
     return (
       <div>
           <Button aria-controls="simple-menu" aria-haspopup="true" onClick={(event) => this.handleClick(event)}>
-              <Avatar />
+              <ExpandMoreIcon />
           </Button>
           <Menu
               id="simple-menu"
@@ -55,11 +54,11 @@ class CreateListing extends React.Component {
               open={Boolean(this.state.anchorEl)}
               onClose={() => this.handleClose()}
           >
-             {local.user ? <MenuItem onClick={() => this.handleLogout()}>Logout</MenuItem> : 
-               <div>
-                 <Link to='/login' ><MenuItem onClick={() => this.handleClose()}>Login / Register</MenuItem></Link>
-                 <MenuItem onClick={() => this.handleLogout()}>Logout</MenuItem>   
-               </div>
+             {local.user 
+             ? 
+             <MenuItem onClick={() => this.handleNewListing}>New Listing</MenuItem> 
+             :
+             <></>
              }
           </Menu>
       </div>
@@ -68,7 +67,9 @@ class CreateListing extends React.Component {
 }
 
 const actionCreators = {
-  logout: userActions.logout
+    // login: userActions.login,
+    // logout: userActions.logout
+    createListing: listingActions.createListing
 };
 
 export default connect(null, actionCreators)(CreateListing)
