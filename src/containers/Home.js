@@ -2,7 +2,6 @@ import React from 'react'
 import './Home.css'
 import Banner from '../components/Banner'
 import Card from '../components/Card'
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../actions/user.actions';
 
@@ -17,7 +16,6 @@ class Home extends React.Component {
     // }
 
     render () {
-        const { user, users } = this.props;
         return (
             <div className='home'>
                 <Banner />

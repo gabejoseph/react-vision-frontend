@@ -2,9 +2,7 @@ import React from 'react'
 import '../components/SearchResult.css'
 import SearchResult from '../components/SearchResult'
 import { Button } from '@material-ui/core'
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { userActions } from '../actions/user.actions';
 import { listingActions } from '../actions/listing.actions';
 
 
@@ -27,7 +25,7 @@ class SearchPage extends React.Component {
 
     handleSort() {
         const listings = [ ...this.props.listing ]
-        listings.sort(function(a, b) {
+        listings.sort( (a, b) => {
             let priceA = a.price // ignore upper and lowercase
             let priceB = b.price // ignore upper and lowercase
                 if (priceA < priceB) {
@@ -36,8 +34,9 @@ class SearchPage extends React.Component {
                 if (priceA > priceB) {
                     return 1;
                 }
-
+            
         })
+
         this.setState({ 
             listings
         })

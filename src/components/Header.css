@@ -36,8 +36,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 15vw;
-    margin-right: 80px;
+    width: 9vw;
+    margin-right: 50px;
 }
  
 .header_right > button {    
