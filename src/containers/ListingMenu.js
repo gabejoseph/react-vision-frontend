@@ -5,9 +5,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { connect } from 'react-redux'
 import { listingActions } from '../actions/listing.actions'
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+import { Link } from 'react-router-dom'
 import { userActions } from '../actions/user.actions';
 
-class CreateListing extends React.Component {
+class ListingMenu extends React.Component {
 
 
   constructor(props) {
@@ -34,10 +35,6 @@ class CreateListing extends React.Component {
     })
   };
 
-  handleNewListing = () => {
-
-  }
-
   render() {
 
     const local = localStorage
@@ -56,7 +53,7 @@ class CreateListing extends React.Component {
           >
              {local.user 
              ? 
-             <MenuItem onClick={() => this.handleNewListing}>New Listing</MenuItem> 
+             <Link to='newListing'><MenuItem onClick={() => this.handleClose()}>New Listing</MenuItem></Link> 
              :
              <></>
              }
@@ -72,4 +69,4 @@ const actionCreators = {
     createListing: listingActions.createListing
 };
 
-export default connect(null, actionCreators)(CreateListing)
+export default connect(null, actionCreators)(ListingMenu)

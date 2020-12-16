@@ -4,7 +4,7 @@ import SearchIcon from "@material-ui/icons/Search"
 import LanguageIcon from "@material-ui/icons/Language"
 import { Link } from 'react-router-dom'
 import SimpleMenu from '../containers/SimpleMenu'
-import CreateListing from '../containers/CreateListing'
+import ListingMenu from '../containers/ListingMenu'
 
 class Header extends React.Component {
     
@@ -42,9 +42,9 @@ class Header extends React.Component {
                 ? 
                 <>
                 <LanguageIcon />
-                <CreateListing 
+                <ListingMenu 
                     onClick={this.handleClick}
-                ></CreateListing>
+                ></ListingMenu>
                 </>
                 :
                 <></>
