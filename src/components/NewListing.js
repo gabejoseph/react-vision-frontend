@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-
-import { userActions } from '../actions/user.actions';
+import { listingActions } from '../actions/listing.actions';
 
 class Login extends React.Component {
 
@@ -18,7 +17,6 @@ class Login extends React.Component {
             location: '',
             title: '',
             description: '',
-            star: '',
             price: ''
         };
 
@@ -34,10 +32,11 @@ class Login extends React.Component {
         e.preventDefault();
 
         this.setState({ submitted: true });
-        const { img, location, title, description, star, price } = this.state;
+        const { img, location, title, description, price } = this.state;
         const user_id = JSON.parse(localStorage.user).user.user_id
-        if (user_id && img && location && title && description && star && price) {
-            // this.props.login(email, password);
+        const listing = {img, location, title, description, price, user_id}
+        if (user_id && img && location && title && description && price) {
+            this.props.createListing(listing)
             this.props.history.push('/');
         }
     }
@@ -73,12 +72,6 @@ class Login extends React.Component {
                             <div className="help-block">Description is required</div>
                         }
                     </div>
-                    <div className={'form-group' + (submitted && !star ? ' has-error' : '')}>
-                        <TextField type="text" htmlFor="star" label="Star" className="form-control" name="star" value={star} onChange={this.handleChange} />
-                        {submitted && !star &&
-                            <div className="help-block">Star is required</div>
-                        }
-                    </div>
                     <div className={'form-group' + (submitted && !price ? ' has-error' : '')}>
                         <TextField type="text" htmlFor="price" label="Price" className="form-control" name="price" value={price} onChange={this.handleChange} />
                         {submitted && !price &&
@@ -100,8 +93,10 @@ function mapState(state) {
 }
 
 const actionCreators = {
-    // login: userActions.login,
-    // logout: userActions.logout
+    getListings: listingActions.getListings, 
+    createListing: listingActions.createListing,
+    updateListings: listingActions.updateListings,
+    deleteListings: listingActions.deleteListings
 };
 
 export default connect(mapState, actionCreators)(Login);
