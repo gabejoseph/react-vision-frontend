@@ -25,15 +25,14 @@ class Login extends React.Component {
     handleChange = (e) => {
         const { name, value } = e.target;
         this.setState({ [name]: value });
-        debugger
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-
+        
         this.setState({ submitted: true });
         const { img, location, title, description, price } = this.state;
-        const user_id = JSON.parse(localStorage.user).user.user_id
+        const user_id = JSON.parse(localStorage.user).user.id
         const listing = {img, location, title, description, price, user_id}
         if (user_id && img && location && title && description && price) {
             this.props.createListing(listing)

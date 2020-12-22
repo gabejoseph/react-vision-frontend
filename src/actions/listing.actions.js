@@ -6,8 +6,11 @@ import listingConstants from '../constants/listing.constants';
 import listingService from '../services/listing.service';
 
 const createListing = (listing) => {
+    const request = (listing) => { return { type: listingConstants.LISTING_REQUEST, listing } }
+    const success = (listing) => { return { type: listingConstants.LISTING_SUCCESS, listing } }
+    const failure = (error) => { return { type: listingConstants.LISTING_FAILURE, error } }
     return dispatch => {
-        dispatch(request());
+        dispatch(request(listing));
         service.newListing(listing)
             .then(
                 listing => {
@@ -20,14 +23,13 @@ const createListing = (listing) => {
                     dispatch(alertActions.error.toString());
                 }
             )
-        const request = (listing) => { return { type: listingConstants.LISTING_REQUEST, listing } }
-        const success = (listing) => { return { type: listingConstants.LISTING_SUCCESS, listing } }
-        const failure = (error) => { return { type: listingConstants.LISTING_FAILURE, error } }
     };
 
 }
 
 const getListings = () => {
+    const request = () => { return { type: constants.GETALL_REQUEST } }
+    const success = (listing) => { return { type: constants.GETALL_SUCCESS, listing } }
     return dispatch => {
         dispatch(request());
         service.getAll()
@@ -37,13 +39,13 @@ const getListings = () => {
                     // history.push('/');
                 },
             );
-        const request = () => { return { type: constants.GETALL_REQUEST } }
-        const success = (listing) => { return { type: constants.GETALL_SUCCESS, listing } }
-        
     };
 }
 
 const updateListings = (listing) => {
+    const request = () => { return { type: constants.GETALL_REQUEST } }
+    const success = (listing) => { return { type: constants.GETALL_SUCCESS, listing } }
+    const failure = (error) => { return { type: listingConstants.LISTING_FAILURE, error } }
     return dispatch => {
         dispatch(request());
         service.update(listing)
@@ -58,13 +60,13 @@ const updateListings = (listing) => {
                     dispatch(alertActions.error.toString());
                 }
             )
-        const request = () => { return { type: constants.GETALL_REQUEST } }
-        const success = (listing) => { return { type: constants.GETALL_SUCCESS, listing } }
-        const failure = (error) => { return { type: listingConstants.LISTING_FAILURE, error } }
     }
 }
 
 const deleteListings = (id) => {
+    const request = (id) => { return { type: listingConstants.DELETE_REQUEST, id } }
+    const success = (id) => { return { type: listingConstants.DELETE_SUCCESS, id } }
+    const failure = (id, error) => { return { type: listingConstants.DELETE_ERROR, id, error } }
     return dispatch => {
         dispatch(request(id));
 
@@ -73,10 +75,6 @@ const deleteListings = (id) => {
                 id => dispatch(success(id)),
                 error => dispatch(failure(id, error.toString()))
             )
-        const request = (id) => { return { type: listingConstants.DELETE_REQUEST, id } }
-        const success = (id) => { return { type: listingConstants.DELETE_SUCCESS, id } }
-        const failure = (id, error) => { return { type: listingConstants.DELETE_ERROR, id, error } }
-
     }
 }
 

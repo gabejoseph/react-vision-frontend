@@ -1,4 +1,5 @@
 const BASE_URL = 'https://rails-vision-backend.herokuapp.com'
+// const BASE_URL = 'http://localhost:4000'
 
 const newListing = (listing) => {
     const requestOptions = {
