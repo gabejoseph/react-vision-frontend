@@ -10,6 +10,7 @@ function Banner() {
     const [showSearch, setShowSearch] = useState
     (false);
     
+    
 
     return (
         <div className='banner' >
